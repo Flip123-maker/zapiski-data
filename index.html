@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapiski App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Login/Register Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Prijava / Registracija</h2>
+      <button onclick="register()">Registracija</button>
+
+      <p>Ali imaš JSON datoteko za prijavo?</p>
+      <input type="file" id="loginFile" style="display:none;" accept=".json" onchange="loginWithFile(event)">
+      <button onclick="document.getElementById('loginFile').click()">Prijava z JSON datoteko</button>
+    </div>
+  </div>
+
+  <div id="app" style="display:none;">
+    <div id="sidebar">
+      <h2>Moji Zapiski</h2>
+      <p id="currentUserDisplay">Uporabnik: -</p>
+      <button onclick="addNote()">➕ Dodaj zapisek</button>
+      <button onclick="exportUserJSON()">💾 Shrani vse zapiske</button>
+      <button onclick="exportNotesJSON()">💾 Izvozi zapiske</button>
+      <input type="file" id="importFile" style="display:none" accept=".json" onchange="importNotes(event)">
+      <button onclick="document.getElementById('importFile').click()">📂 Uvozi zapiske</button>
+      <button onclick="logout()">🚪 Odjava</button>
+      <ul id="notesList"></ul>
+    </div>
+
+    <div id="mainArea">
+      <div id="notesContainer"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
